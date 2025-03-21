@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Yaps Extension",
+  "version": "1.0",
+  "description": "Displays Yaps data for X profiles",
+  "permissions": ["activeTab", "tabs", "storage"],
+  "host_permissions": [
+    "https://api.kaito.ai/*",
+    "https://x.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://x.com/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["*.js"],
+      "matches": ["https://x.com/*"]
+    }
+  ]
+}
